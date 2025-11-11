@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
-Size getDesignSize() {
+Size getDesignSize({required BuildContext context}) {
   // Get the actual screen size
-  final window = WidgetsBinding.instance.window;
+  final window = View.of(context);
   final size = window.physicalSize / window.devicePixelRatio;
   // Return appropriate design size based on screen width
   if (size.width >= 1200) {

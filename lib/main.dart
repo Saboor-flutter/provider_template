@@ -19,12 +19,7 @@ Future<void> main() async {
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeViewModel()),
       ],
-      child: ScreenUtilInit(
-        designSize: getDesignSize(),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        child: AppInit(),
-      ),
+      child: AppInit(),
     ),
   );
 }
