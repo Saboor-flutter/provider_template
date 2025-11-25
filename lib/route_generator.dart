@@ -4,9 +4,9 @@ import 'package:provider_sample_app/screens/home_screen.dart';
 import 'package:provider_sample_app/screens/login_screen.dart';
 import 'package:provider_sample_app/screens/splash_screen.dart';
 
-const String splashScreen = '/splash_screen';
+const String splashScreen = '/';
 const String homeScreen = '/home_screen';
-const String loginScreen = '/';
+const String loginScreen = '/login_screen';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {

@@ -14,7 +14,6 @@ class AppInit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.watch();
     // ScreenUtil.init(context);
     final ThemeMode themeMode = context.watch<ThemeViewModel>().themeMode;
     return ScreenUtilInit(
