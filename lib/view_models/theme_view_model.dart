@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../utills/enums.dart';
-import '../utills/shared_pref .dart';
+import '../utills/shared_pref.dart';
 
 class ThemeViewModel extends ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.light;
@@ -11,14 +11,19 @@ class ThemeViewModel extends ChangeNotifier {
 
   ThemeViewModel() {
     _loadTheme();
-  }
+  } 
 
   void _loadTheme() {
     try {
-      final themeMode = _sharedPref.readObject(
+      final themeModeString = _sharedPref.readString(
         SharedPreferencesKeys.themeModeKey.keyText,
       );
-      _themeMode = themeMode;
+      if (themeModeString != null) {
+        _themeMode = ThemeMode.values.firstWhere(
+          (mode) => mode.toString() == themeModeString,
+          orElse: () => ThemeMode.system,
+        );
+      }
       notifyListeners();
     } catch (e) {
       if (kDebugMode) {
@@ -31,9 +36,9 @@ class ThemeViewModel extends ChangeNotifier {
   void setThemeMode(ThemeMode themeMode) {
     if (_themeMode == themeMode) return;
     _themeMode = themeMode;
-    _sharedPref.saveObject(
+    _sharedPref.saveString(
       SharedPreferencesKeys.themeModeKey.keyText,
-      themeMode,
+      themeMode.toString(),
     );
     notifyListeners();
   }

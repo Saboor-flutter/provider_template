@@ -1,6 +1,7 @@
 //final themeProvider = ChangeNotifierProvider((_) => ThemeNotifier());
 
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:provider_sample_app/route_generator.dart';
@@ -29,6 +30,7 @@ class AppInit extends StatelessWidget {
           themeMode: themeMode,
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
+          builder: EasyLoading.init(),
         );
       }
     );

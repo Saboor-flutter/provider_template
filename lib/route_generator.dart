@@ -10,23 +10,22 @@ const String loginScreen = '/login_screen';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
-
     switch (settings.name) {
       case splashScreen:
         return MaterialPageRoute(
           settings: RouteSettings(name: splashScreen),
-          builder: (_) => SplashScreen(),
+          builder: (_) => const SplashScreen(),
         );
       case homeScreen:
         return MaterialPageRoute(
           settings: RouteSettings(name: homeScreen),
-          builder: (_) => HomeScreen(),
+          builder: (_) => const HomeScreen(),
         );
       case loginScreen:
         return MaterialPageRoute(
           settings: RouteSettings(name: loginScreen),
-          builder: (_) => LoginScreen());
+          builder: (_) => const LoginScreen(),
+        );
       default:
         return _errorRoute();
     }

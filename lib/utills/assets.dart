@@ -6,8 +6,8 @@ class PngAssets {
 }
 
 class SvgAssets {
-  static const String _assets = 'assets/svg/';
-  
+  // Add SVG asset paths here when needed
+  // static const String _assets = 'assets/svg/';
 }
 
 class LottieAssets {
