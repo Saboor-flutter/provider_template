@@ -6,15 +6,14 @@ import 'package:provider/provider.dart';
 import 'package:provider_sample_app/app_init.dart';
 import 'package:provider_sample_app/services/api_base_helper.dart';
 import 'package:provider_sample_app/services/auth_service.dart';
-import 'package:provider_sample_app/utills/shared_pref.dart';
 import 'package:provider_sample_app/view_models/auth_view_model.dart';
 import 'package:provider_sample_app/view_models/theme_view_model.dart';
 
-import 'utills/secure_storage_service.dart';
+import 'utils/secure_storage_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await GoogleFonts.pendingFonts([GoogleFonts.montserratTextTheme()]);
+  // await GoogleFonts.pendingFonts([GoogleFonts.montserratTextTheme()]);
   await ScreenUtil.ensureScreenSize();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   // await SharedPref.init();

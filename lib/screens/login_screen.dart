@@ -3,7 +3,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_sample_app/route_generator.dart';
-import 'package:provider_sample_app/utills/color_constant.dart';
+import 'package:provider_sample_app/utils/color_constant.dart';
 import 'package:provider_sample_app/view_models/auth_view_model.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -42,10 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: 8.h),
                 Text(
                   'Sign in to continue',
-                  style: TextStyle(
-                    fontSize: 16.sp,
-                    color: Colors.grey[600],
-                  ),
+                  style: TextStyle(fontSize: 16.sp, color: Colors.grey[600]),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 60.h),
@@ -172,7 +169,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
 
     final authViewModel = context.read<AuthViewModel>();
-    
+
     final success = await authViewModel.callSignInApi();
 
     if (success && context.mounted) {
@@ -183,7 +180,8 @@ class _LoginScreenState extends State<LoginScreen> {
         Navigator.pushReplacementNamed(context, homeScreen);
       }
     } else if (context.mounted) {
-      final errorMessage = authViewModel.authResponse.message ?? 
+      final errorMessage =
+          authViewModel.authResponse.message ??
           'Login failed. Please try again.';
       EasyLoading.showError(errorMessage);
     }
