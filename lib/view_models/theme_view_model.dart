@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../utills/enums.dart';
-import '../utills/shared_pref.dart';
+import '../utils/enums.dart';
+import '../utils/shared_pref.dart';
 
 class ThemeViewModel extends ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.light;

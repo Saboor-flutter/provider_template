@@ -3,8 +3,11 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_sample_app/route_generator.dart';
-import 'package:provider_sample_app/utills/color_constant.dart';
 import 'package:provider_sample_app/view_models/auth_view_model.dart';
+
+import '../utils/color_constant.dart';
+
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

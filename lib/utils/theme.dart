@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider_sample_app/utills/color_constant.dart';
+
+import 'color_constant.dart';
 
 class AppTheme {
   // Light Theme

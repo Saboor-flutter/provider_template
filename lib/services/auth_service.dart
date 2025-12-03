@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:provider_sample_app/repositories/auth_repository.dart';
-import 'package:provider_sample_app/utills/secure_storage_service.dart';
 import '../models/requests/sign_in_request.dart';
 import '../models/responses/auth_response.dart';
-import '../utills/enums.dart';
+import '../utils/enums.dart';
+import '../utils/secure_storage_service.dart';
 import 'api_base_helper.dart';
 
 class AuthService implements AuthRepository {
