@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_sample_app/presentation/view_models/auth_view_model.dart';
 import 'package:provider_sample_app/route_generator.dart';
 import 'package:provider_sample_app/utils/color_constant.dart';
-import 'package:provider_sample_app/view_models/auth_view_model.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -170,20 +170,19 @@ class _LoginScreenState extends State<LoginScreen> {
 
     final authViewModel = context.read<AuthViewModel>();
 
-    final success = await authViewModel.callSignInApi();
+    final success = await authViewModel.signIn();
 
     if (success && context.mounted) {
       EasyLoading.showSuccess('Login successful!');
-      // Small delay to show success message before navigation
       await Future.delayed(const Duration(milliseconds: 500));
       if (context.mounted) {
         Navigator.pushReplacementNamed(context, homeScreen);
       }
     } else if (context.mounted) {
-      final errorMessage =
-          authViewModel.authResponse.message ??
+      final errorMessage = authViewModel.errorMessage ??
           'Login failed. Please try again.';
       EasyLoading.showError(errorMessage);
     }
   }
 }
+

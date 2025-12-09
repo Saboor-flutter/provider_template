@@ -1,7 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import '../utils/enums.dart';
-import '../utils/shared_pref.dart';
+import '../../utils/enums.dart';
+import '../../utils/shared_pref.dart';
+import '../../utils/logger_service.dart';
 
 class ThemeViewModel extends ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.light;
@@ -26,9 +26,7 @@ class ThemeViewModel extends ChangeNotifier {
       }
       notifyListeners();
     } catch (e) {
-      if (kDebugMode) {
-        print('Error loading theme: $e');
-      }
+      AppLogger.w('Error loading theme: $e');
       _themeMode = ThemeMode.system; // Default fallback
     }
   }
@@ -51,3 +49,4 @@ class ThemeViewModel extends ChangeNotifier {
     }
   }
 }
+

@@ -1,6 +1,7 @@
 import 'dart:io';
 
-import '../exceptions/app_exception.dart';
+import '../core/exceptions/app_exception.dart';
+import 'logger_service.dart';
 
 /// Centralized error handler for the application
 /// Note: This handler does NOT display UI elements. Errors should be displayed in the UI layer.
@@ -37,7 +38,7 @@ class ErrorHandler {
       );
     }
 
-    // Log error for debugging (you can integrate a logging framework here)
+    // Log error using centralized logging service
     _logError(appException);
 
     return appException.message;
@@ -59,19 +60,28 @@ class ErrorHandler {
   }
 
   /// Logs error for debugging purposes
-  /// In production, you might want to use a logging framework like logger
   static void _logError(AppException exception) {
-    // TODO: Integrate with a logging framework (e.g., logger package)
-    // For now, using print for debugging
-    print('Error: ${exception.runtimeType}');
-    print('Message: ${exception.message}');
-    print('Code: ${exception.code}');
+    final errorData = <String, dynamic>{
+      'type': exception.runtimeType.toString(),
+      'message': exception.message,
+      'code': exception.code,
+    };
+
     if (exception.originalError != null) {
-      print('Original Error: ${exception.originalError}');
+      errorData['originalError'] = exception.originalError.toString();
     }
-    if (exception is ApiHttpException && exception.responseBody != null) {
-      print('Response Body: ${exception.responseBody}');
+
+    if (exception is ApiHttpException) {
+      errorData['statusCode'] = exception.statusCode;
+      if (exception.responseBody != null) {
+        errorData['responseBody'] = exception.responseBody;
+      }
     }
+
+    AppLogger.e(
+      '❌ Error: ${exception.runtimeType}',
+      errorData,
+    );
   }
 
   /// Gets a user-friendly error message from an exception

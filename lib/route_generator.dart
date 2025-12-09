@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:provider_sample_app/screens/home_screen.dart';
-import 'package:provider_sample_app/screens/login_screen.dart';
-import 'package:provider_sample_app/screens/splash_screen.dart';
+import 'package:provider_sample_app/presentation/screens/home_screen.dart';
+import 'package:provider_sample_app/presentation/screens/login_screen.dart';
+import 'package:provider_sample_app/presentation/screens/splash_screen.dart';
 
 const String splashScreen = '/';
 const String homeScreen = '/home_screen';

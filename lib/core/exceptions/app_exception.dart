@@ -138,3 +138,4 @@ class UnknownException extends AppException {
     super.originalError,
   });
 }
+

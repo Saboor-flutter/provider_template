@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:provider_sample_app/exceptions/app_exception.dart';
+import 'package:provider_sample_app/core/exceptions/app_exception.dart';
 import 'package:provider_sample_app/utils/error_handler.dart';
 
 void main() {

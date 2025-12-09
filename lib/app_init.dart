@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider_sample_app/route_generator.dart';
 import 'package:provider_sample_app/utils/screen_size.dart';
 import 'package:provider_sample_app/utils/theme.dart';
-import 'package:provider_sample_app/view_models/theme_view_model.dart';
+import 'package:provider_sample_app/presentation/view_models/theme_view_model.dart';
 import 'package:provider/provider.dart';
 
 class AppInit extends StatelessWidget {
