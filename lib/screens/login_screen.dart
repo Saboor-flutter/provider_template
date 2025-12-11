@@ -6,6 +6,8 @@ import 'package:provider_sample_app/route_generator.dart';
 import 'package:provider_sample_app/utils/color_constant.dart';
 import 'package:provider_sample_app/view_models/auth_view_model.dart';
 
+import '../utils/text_field_validations.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -59,13 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         prefixIcon: const Icon(Icons.email_outlined),
                       ),
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your email';
-                        }
-                        if (!value.contains('@') || !value.contains('.')) {
-                          return 'Please enter a valid email';
-                        }
-                        return null;
+                        return validateEmail(value);
                       },
                     );
                   },
@@ -97,13 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your password';
-                        }
-                        if (value.length < 6) {
-                          return 'Password must be at least 6 characters';
-                        }
-                        return null;
+                        return validatePassword(value);
                       },
                     );
                   },
